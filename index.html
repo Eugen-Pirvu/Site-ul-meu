@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Site-ul Meu</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #28a745;
+            color: white;
+            text-align: center;
+            padding: 2rem;
+        }
+        nav {
+            background-color: #333;
+            padding: 1rem;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            margin: 0 1rem;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #28a745;
+        }
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        .hero {
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+        .hero h2 {
+            color: #28a745;
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            max-width: 400px;
+            margin: 1rem auto;
+        }
+        form label {
+            margin-top: 0.5rem;
+        }
+        form input, form textarea {
+            padding: 0.5rem;
+            margin-top: 0.2rem;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        form button {
+            background-color: #28a745;
+            color: white;
+            padding: 0.7rem;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            margin-top: 1rem;
+        }
+        form button:hover {
+            background-color: #218838;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 1rem;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+        @media (max-width: 600px) {
+            nav a {
+                display: block;
+                margin: 0.5rem 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Site-ul Meu</h1>
+    </header>
+    <nav>
+        <a href="#acasa">Acasă</a>
+        <a href="#despre">Despre</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    <div class="container">
+        <section class="hero" id="acasa">
+            <h2>Bine ați venit!</h2>
+            <p>Acesta este un site, accesibil online pentru oricine.</p>
+        </section>
+        <section id="despre">
+            <h2>Despre</h2>
+            <p>Acest site este în lucru.</p>
+        </section>
+        <section id="contact">
+            <h2>Contact</h2>
+            <p>Email: <a href="mailto:contact@exemplu.com">contact@exemplu.com</a></p>
+            <form id="contact-form">
+                <label for="nume">Nume:</label>
+                <input type="text" id="nume" name="nume" required>
+                <label for="mesaj">Mesaj:</label>
+                <textarea id="mesaj" name="mesaj" required></textarea>
+                <button type="submit">Trimite</button>
+            </form>
+        </section>
+    </div>
+    <footer>
+        <p>© 2025 Site-ul Meu. Creat fără costuri.</p>
+    </footer>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('contact-form');
+            form.addEventListener('submit', (e) => {
+                e.preventDefault();
+                alert('Mesajul a fost trimis! (Funcționalitate demo.)');
+                form.reset();
+            });
+
+            document.querySelectorAll('nav a').forEach(anchor => {
+                anchor.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    const sectionId = anchor.getAttribute('href').substring(1);
+                    document.getElementById(sectionId).scrollIntoView({ behavior: 'smooth' });
+                });
+            });
+        });
+    </script>
+</body>
+</html>
